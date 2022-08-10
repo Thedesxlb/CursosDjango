@@ -1,0 +1,58 @@
+{% extends 'contenido/encabezado.html' %}
+{% block titulo %}Editar Curso{% endblock titulo %}
+
+{% block contenido %}
+
+<div class="page-header">
+    <div class="page-title">
+        <h3>Editar Curso</h3>
+    </div>    
+</div>
+ <form class="form-horizontal" action="{% url 'Editar2' curso.numero%}" method="POST" role="form">
+{%csrf_token%}
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="form-group">
+            <label class="col-sm-2 control-label text-right">Materia:</label>
+                <div class="col-sm-5">
+                    <textarea name="materia" class="form-control" >
+                    {{curso.materia}}
+                    </textarea>
+                </div>  
+            </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label text-right">Profesor: </label>
+        <div class="col-sm-5">
+        <textarea name="profesor" class="form-control">
+            {{curso.profesor}}
+        </textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+            <label class="col-sm-2 control-label text-right">Cuatrimestre:</label>
+            <div class="col-sm-5">
+            <textarea name="cuatrimestre"  class="form-control">
+                {{curso.cuatrimestre}}
+            </textarea>
+            </div>
+    </div> 
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label text-right">Turno:</label>
+        <div class="col-sm-5">
+        <textarea name="turno"  class="form-control">
+            {{curso.turno}}
+        </textarea>
+    </div>
+    </div> 
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{%url 'Cursos'%}" class="btn btn-primary">Cancelar</a>
+
+     </div>
+</div>
+</form>
+ 
+{% endblock  %}

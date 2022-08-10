@@ -1,0 +1,28 @@
+{% extends "contenido/encabezado.html" %}
+{% block titulo%} ELIMINAR {%endblock%}
+
+
+{% block contenido %}
+
+<div class="container page-header col-6 py-4">
+
+       
+    
+
+     <div class="bg-dark col">
+        <div class="page-header">
+            <div class="page-title">
+                <h2 class="text-light text-center">Eliminar Curso</h2>
+            </div>
+            <form class="row" method="POST" role="form">
+                {%csrf_token%}
+                <button type="Submit" class="btn btn-danger">Si</button>
+                <a href="{%url 'Cursos'%}" class="btn btn-primary">Cancelar</a>
+            </form>
+        </div>
+    </div> 
+</div>
+
+   
+{% endblock %}
+
