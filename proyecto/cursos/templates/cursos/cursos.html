@@ -1,0 +1,92 @@
+{%extends "contenido/encabezado.html"%}
+
+
+{% block titulo %} Cursos {% endblock %}
+
+
+{%block contenido%}
+
+<div class="container py-4">
+    <div class="row">
+        <div class="">
+            <h1>Cursos</h1>
+            <div class="table-responsive">
+                <table class="table table-dark table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Foto</th>
+                            <th>Num_Curso</th>
+                            <th>Curso</th>
+                            <th>Profesor</th>
+                            <th>Carrera</th>
+                            <th>Turno</th>
+                            <th>Eliminar</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for curso in cursos%}
+
+                        <tr>
+                            <td class="text-center">
+                                <img src="{{curso.imagen.url}}" alt="" class="img-media" width="100px">
+                            </td>
+                            <td class="text-semibold">{{curso.numero}}</td>
+                            <td class="muted">{{curso.materia}}</td>
+                            <td class="muted">{{curso.profesor}}</td>
+                            <td class="muted">{{curso.cuatrimestre}}</td>
+                            <td class="muted">{{curso.turno}}</td>
+
+                             <td class="text-center">
+                                <a href="{%url 'Eliminar' curso.numero%}">Eliminar</a>
+                            </td>
+                            
+                            <td class="text-center">
+                                <a href="{%url 'Editar1' curso.numero%}">Editar</a>
+                            </td> 
+                        </tr>
+                    
+
+                    {%endfor%}
+                    </tbody>
+                </table>   
+            </div>        
+        </div>
+    </div>
+</div>  
+
+{% comment %} <div class=" page-header">
+
+    <div class=" center">
+        <h1>Cursos</h1>
+    </div>  
+</div>   
+<table class="table table-striped text-center ">
+    <thead >
+        <tr>
+            <th>Foto</th>
+            <th>Num_Curso</th>
+            <th>Curso</th>
+            <th>Profesor</th>
+            <th>Carrera</th>
+            <th>Turno</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for materia in materias%}
+        
+            <tr>
+                <td class="text-center">
+                    <img src="{{materia.imagen.url}}" alt="" class="img-media" width="100px">
+                </td>
+                <td class="text-semibold">{{materia.numero}}</td>
+                <td class="muted">{{materia.materia}}</td>
+                <td class="muted">{{materia.profesor}}</td>
+                <td class="muted">{{materia.cuatrimestre}}</td>
+                <td class="muted">{{materia.turno}}</td>
+            </tr>
+        
+        {%endfor%}
+    </tbody>
+</table>    {% endcomment %}
+{% endblock %} 
